@@ -1,0 +1,367 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f0f2f5;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  transition: background-color 0.3s ease;
+}
+body.dark {
+  background: #2c2c2c;
+}
+.container {
+  background: white;
+  max-width: 600px;
+  width: 100%;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  color: #333;
+}
+.container.dark {
+  background: #121212;
+  color: #e1e1e1;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.8);
+}
+h1 {
+  text-align: center;
+  margin-bottom: 25px;
+}
+.input-group {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+input[type="text"], select {
+  flex-grow: 1;
+  padding: 12px 15px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  transition: border-color 0.2s ease, background-color 0.3s ease, color 0.3s ease;
+  background: white;
+  color: #333;
+}
+.container.dark input[type="text"],
+.container.dark select {
+  background: #2c2c2c;
+  border-color: #555;
+  color: #ddd;
+}
+input[type="text"]:focus, select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+button {
+  background-color: #007bff;
+  border: none;
+  color: white;
+  padding: 12px 20px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  user-select: none;
+}
+button:hover {
+  background-color: #0056b3;
+}
+.dark button {
+  background-color: #1a73e8;
+}
+.dark button:hover {
+  background-color: #185abc;
+}
+.error {
+  color: #d93025;
+  margin-top: 10px;
+  font-weight: 600;
+  text-align: center;
+}
+.filtros, .ordenacao {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin: 20px 0 10px 0;
+  flex-wrap: wrap;
+}
+.filtros button, .ordenacao button {
+  background-color: #e2e6ea;
+  color: #333;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+.filtros button:hover, .ordenacao button:hover {
+  background-color: #cfd4d8;
+}
+.container.dark .filtros button, 
+.container.dark .ordenacao button {
+  background-color: #444;
+  color: #eee;
+}
+.container.dark .filtros button:hover,
+.container.dark .ordenacao button:hover {
+  background-color: #666;
+}
+.lista-tarefas {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 400px;
+  overflow-y: auto;
+}
+.tarefa {
+  background: #f9f9f9;
+  border-radius: 8px;
+  padding: 15px 20px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.container.dark .tarefa {
+  background: #2c2c2c;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.6);
+  color: #ddd;
+}
+.tarefa:hover {
+  background-color: #e9f0ff;
+}
+.container.dark .tarefa:hover {
+  background-color: #3a3a3a;
+}
+.tarefa input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: #007bff;
+}
+.container.dark .tarefa input[type="checkbox"] {
+  accent-color: #1a73e8;
+}
+.texto-tarefa {
+  flex-grow: 1;
+  font-size: 1.1rem;
+  word-break: break-word;
+}
+.texto-tarefa.concluida {
+  text-decoration: line-through;
+  color: #6c757d;
+}
+.container.dark .texto-tarefa.concluida {
+  color: #999;
+}
+.prioridade {
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 3px 8px;
+  border-radius: 12px;
+  user-select: none;
+  min-width: 70px;
+  text-align: center;
+  color: white;
+}
+.prioridade.Alta {
+  background-color: #dc3545;
+}
+.prioridade.Média {
+  background-color: #ffc107;
+  color: #212529;
+}
+.prioridade.Baixa {
+  background-color: #198754;
+}
+.status-concluida {
+  color: #28a745;
+  font-weight: 700;
+  margin-left: 10px;
+  user-select: none;
+}
+.btn-editar, .btn-remover, .btn-salvar, .btn-cancelar {
+  border: none;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  user-select: none;
+}
+.btn-editar {
+  background-color: #fd7e14;
+  color: white;
+}
+.btn-editar:hover {
+  background-color: #e96900;
+}
+.btn-remover {
+  background-color: #dc3545;
+  color: white;
+}
+.btn-remover:hover {
+  background-color: #b02a37;
+}
+.btn-salvar {
+  background-color: #198754;
+  color: white;
+  margin-left: 8px;
+}
+.btn-salvar:hover {
+  background-color: #146c43;
+}
+.btn-cancelar {
+  background-color: #6c757d;
+  color: white;
+  margin-left: 8px;
+}
+.btn-cancelar:hover {
+  background-color: #565e64;
+}
+.input-edicao {
+  flex-grow: 1;
+  font-size: 1.1rem;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  transition: border-color 0.2s ease, background-color 0.3s ease, color 0.3s ease;
+  background: white;
+  color: #333;
+}
+.container.dark .input-edicao {
+  background: #2c2c2c;
+  border-color: #555;
+  color: #ddd;
+}
+.input-edicao:focus {
+  border-color: #198754;
+  outline: none;
+}
+.contador {
+  text-align: center;
+  margin-top: 20px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #333;
+}
+.container.dark .contador {
+  color: #ddd;
+}
+
+.btn-modo-escuro {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  user-select: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-modo-escuro:hover {
+  background-color: #0056b3;
+}
+
+body.dark .btn-modo-escuro {
+  background-color: #666666;
+  color: #eee;
+}
+
+body.dark .btn-modo-escuro:hover {
+  background-color: #222;
+}
+
+body.dark .container {
+  background: #212121;
+  color: #e1e1e1;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.8);
+}
+
+body.dark .tarefa {
+  background: #2c2c2c;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.6);
+  color: #ddd;
+}
+
+body.dark .tarefa:hover {
+  background-color: #3a3a3a;
+}
+
+body.dark .texto-tarefa.concluida {
+  color: #999;
+}
+
+body.dark input[type="text"],
+body.dark select,
+body.dark .input-edicao {
+  background: #2c2c2c;
+  border-color: #555;
+  color: #ddd;
+}
+
+body.dark button {
+  background-color: #1a73e8;
+  color: white;
+}
+
+body.dark button:hover {
+  background-color: #185abc;
+}
+
+body.dark .filtros button,
+body.dark .ordenacao button {
+  background-color: #444;
+  color: #eee;
+}
+
+body.dark .filtros button:hover,
+body.dark .ordenacao button:hover {
+  background-color: #666;
+}
+
+body.dark .contador {
+  color: #ddd;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+  .container {
+    padding: 20px 15px;
+  }
+  .input-group {
+    flex-direction: column;
+  }
+  button, input[type="text"], select {
+    width: 100%;
+  }
+  .filtros, .ordenacao {
+    flex-direction: column;
+  }
+  .filtros button, .ordenacao button {
+    width: 100%;
+  }
+  .tarefa {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .btn-editar, .btn-remover, .btn-salvar, .btn-cancelar {
+    flex: 1 1 45%;
+    margin: 4px 0;
+  }
+}

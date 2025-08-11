@@ -1,0 +1,109 @@
+.calculadora {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; 
+  text-align: center;
+  box-sizing: border-box; 
+}
+
+.calculadora h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.input-container {
+  width: 100%;
+  text-align: center;
+}
+
+.input-expressao {
+  width: 60%;
+  padding: 15px 10px;
+  font-size: 2em;
+  text-align: right;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+}
+
+.claro {
+  background-color: #fff;
+  color: #000;
+}
+
+.claro input {
+  background-color: #fff;
+  color: #000;
+}
+
+.claro button {
+  background-color: #ffffff;
+  color: #000;
+  padding: 10px; 
+  border-radius: 5px;
+  margin: 5px;
+  width: 60px; 
+  height: 60px;
+}
+
+.claro button:hover {
+  background-color: #ddd;
+}
+
+.claro .botao-modo {
+  color: #fff; 
+}
+
+.escuro {
+  background-color: #333;
+  color: #fff;
+}
+
+.escuro input {
+  background-color: #444;
+  color: #fff;
+  padding: 10px 5px; 
+  border-radius: 5px;
+  border: 1px solid #fff;
+}
+
+.escuro button {
+  background-color: #444;
+  color: #fff;
+  padding: 10px; 
+  border-radius: 5px;
+  border: 1px solid #fff;
+  margin: 5px;
+  width: 60px; 
+  height: 60px;
+}
+
+.escuro button:hover {
+  background-color: #c4c4c4;
+}
+
+.botao-modo {
+  padding: 10px; 
+  margin-top: 20px;
+  cursor: pointer;
+  width: 150px; 
+  height: 50px; 
+}
+
+.botao-modo.claro {
+  background-color: #222;
+}
+
+.botao-modo.escuro {
+  background-color: #fff;
+  color: #000;
+}
+
+.botao-modo:hover {
+  background-color: #555;
+}
