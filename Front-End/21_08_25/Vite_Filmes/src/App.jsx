@@ -1,35 +1,55 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState, useEffect } from 'react';
+import { fetchMoviesBySearchTerm} from './api';
+import './index.css';
+
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+  const [searchTerm, setSearchTerm] = useState('');
+  const [movies, setMovies] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 }
+
+//O useEffect é um Hook que executa efeitos colaterais.
+//Neste caso, ele faz a busca de filmes sempre que o 'searchTerm mu
+useEffect(() => {
+  const getMovies = async () => {
+    try {
+      const movieResults = await fetchMoviesBySearchTerm(searchTerm);
+      setMovies(movieResults);
+    } catch (err) {
+      setError("Não foi possivel carregar os filmes. Verifique a conexão com a API");
+      setMovies([]);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  if (searchTerm) {
+    const timer = setTimeout(() => {
+      getMovies();
+    }, 500);
+    
+    return () => clearTimeout(timer);
+  } else {
+    setMovies([]);
+  }
+}, [searchTerm]);
+
+return (
+  <div className='container'>
+    <h1>Buscador de Filmes</h1>
+    <input type="text"
+    placeholder="Digite o nome de um filme"
+    value={searchTerm}
+    onChange={(e) => setSearchTerm(e.target.value)}
+    className='search-input' />
+
+    {loading && }
+  
+  
+  
+  </div>
+)
 
 export default App
