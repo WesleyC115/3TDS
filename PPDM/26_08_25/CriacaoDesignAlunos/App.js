@@ -9,6 +9,9 @@ import TiposLayout from './screens/TiposLayout';
 import GerenciadorLayout from './screens/GerenciadorLayout';
 import ComponentesTela from './screens/ComponentesTela';
 import DialogoModal from './screens/DialogoModal';
+import BarraAcao from './screens/BarraAcao';
+import ControleElementos from './screens/ControleElementos';
+import TratamentoExcecoes from './screens/TratamentoExcecoes';
 
 
 
@@ -24,7 +27,9 @@ export default function App() {
         <Drawer.Screen name="2.1.3 GerenciadorLayout" component={GerenciadorLayout} />
         <Drawer.Screen name="2.1.4 ComponentesTela" component={ComponentesTela} />
         <Drawer.Screen name="2.1.5 DialogoModal" component={DialogoModal} />
-
+        <Drawer.Screen name="2.1.6 Tela com Barra" component={BarraAcao} />
+        <Drawer.Screen name="2.1.7 ControleElementos" component={ControleElementos} />
+        <Drawer.Screen name="2.1.8 Tratamento Exceções" component={TratamentoExcecoes} />
 
       </Drawer.Navigator>
     </NavigationContainer>
